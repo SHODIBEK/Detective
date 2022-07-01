@@ -8,6 +8,7 @@ $color-gray: #eee;
 // FONTS
 // stylelint-disable-next-line
 $font-primary: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+$font-secondary: 'HelveticaNeueCyr';
 
 // EASING TRANSITIONS
 $duration-normal: 0.4s;
@@ -17,9 +18,20 @@ $easing-out: ease-out;
 $easing-in: ease-in;
 
 // Settings
-$desktop: 1025;
+$desktop: 1024;
 $desktop-xl: 1800;
 $laptop: 1440;
 $tablet: 768;
 $mobile: 320;
 $desktop-vh: 750;
+
+
+:root {
+  --font-primary: -apple-system, blinkmacsystemfont, "HelveticaNeueCyr", roboto, oxygen, ubuntu, cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-secondary: 'Fira Sans Condensed', sans-serif;
+  --dark-blue: #171E26;
+  --light-gray: #cbd5ee;
+  --color-white: #fff;
+  --color-gold: #bc9c6c;
+  --color-blue: #293543;
+}

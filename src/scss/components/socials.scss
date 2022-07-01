@@ -1,0 +1,19 @@
+.social {
+  &__items {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 32px;
+    height: 32px;
+  }
+}

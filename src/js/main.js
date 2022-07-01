@@ -5,13 +5,34 @@ import {ieFix} from './vendor/ie-fix';
 import {vhFix} from './vendor/vh-fix';
 import {actualYear} from './modules/actualYear';
 import header from './components/header';
-import lazyLoading from './modules/lazyLoading';
-import scrollToAnchor from './modules/scrollToAnchor';
+// import lazyLoading from './modules/lazyLoading';
+// import scrollToAnchor from './modules/scrollToAnchor';
 
 ieFix();
 vhFix();
 actualYear();
-scrollToAnchor.init();
+// scrollToAnchor.init();
 
 header.init();
-lazyLoading.init();
+// lazyLoading.init();
+
+const activeToggle = (e) => {
+  let $this = $(e.currentTarget);
+
+  $this.toggleClass('is-active');
+}
+
+const clickAnotherElement = (element) => {
+  $(document).on('click', (e) => {
+    if ($(e.target).closest(element).length) {
+        return;
+    }
+    $(element).removeClass('is-active');
+});
+}
+
+$('.location').on('click', activeToggle);
+clickAnotherElement('.location');
+
+$('.languages').on('click', activeToggle);
+clickAnotherElement('.languages');

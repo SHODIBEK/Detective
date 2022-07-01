@@ -9,7 +9,7 @@ html {
 	overflow-x: hidden;
 	min-height: 100vh;
 	box-sizing: border-box;
-	font-family: $font-primary;
+	font-family: var(--font-primary);
 	scroll-behavior: smooth;
 
 	&.has-cursor,
@@ -30,6 +30,7 @@ body {
 	text-rendering: optimizeLegibility;
 	text-size-adjust: 100%;
 	-webkit-tap-highlight-color: transparent;
+	background-color: var(--dark-blue);
 }
 
 main {
@@ -137,8 +138,13 @@ iframe {
 	position: relative;
 	z-index: 1;
 	margin: 0 auto;
+	padding: 0 15px;
 	width: 100%;
-	max-width: 100%;
+	max-width: 320px;
+
+	@include desktop {
+		max-width: 1460px;
+	}
 }
 
 .site {
@@ -147,6 +153,7 @@ iframe {
 	min-height: 100vh; // fallback
 	// stylelint-disable-next-line
 	min-height: var(--vh);
+	overflow: hidden;
 }
 
 /* stylelint-disable */

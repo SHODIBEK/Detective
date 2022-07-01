@@ -1,0 +1,10 @@
+ul.social__items
+  each object in data.socials
+    li.social__item
+      a.social__link(
+        href="#" 
+        title!=object.title
+        target="_blank"
+        rel="nofollow"
+      )
+        img(src=`${baseDir}images/icons/${object.icon}.svg`, alt!=object.title)
