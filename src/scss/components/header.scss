@@ -1,6 +1,7 @@
 .header {
 	padding: 8px 0;
 	background-color: var(--dark-blue);
+	z-index: 1024;
 
 	&.is-menu-opened {
 		background-color: var(--color-blue);
@@ -82,13 +83,16 @@
 	}
 
 	&__menu {
+		display: flex;
+		flex-direction: column;
+
 		@include mobile {
 			position: fixed;
 			padding-bottom: 25px;
 			top: 78px;
 			left: 0;
 			width: 100%;
-			height: 100%;
+			height: calc(var(--vh) - 80px);
 			background: var(--color-blue);
 			z-index: 101;
 			opacity: 0;
@@ -100,32 +104,108 @@
 				opacity: 1;
 				visibility: visible;
 				transform: translateX(0);
+
+				@include mobile {
+					overflow-x: hidden;
+					overflow-y: auto;
+				}
 			}
 		}
 
 		@include desktop {
 			position: relative;
+			flex-direction: row;
+		}
+
+		&-number {
+			display: flex;
+			flex-direction: column;
+			
+			padding: 0 15px;
+			margin: auto auto 0;
+			text-align: center;
+
+			b {
+				display: block;
+				font-weight: 700;
+				font-size: 18px;
+				line-height: 18px;
+				color: var(--color-white);
+			}
+
+			span {
+				display: block;
+				font-weight: 700;
+				font-size: 14px;
+				line-height: 20px;
+				color: var(--color-gold);
+			}
+		}
+
+		&-social {
+			
+			padding: 0 15px;
+			margin: 15px auto 0;
+			display: flex;
+			justify-content: center;
+
+			@include desktop {
+				display: none;
+			}
+
+			.social__link {
+				width: 24px;
+				height: 24px;
+			}
+		}
+
+		&-location {
+			
+			padding: 0 15px;
+			margin: 25px auto 30px;
+			display: flex;
+			justify-content: center;
+
+			@include desktop {
+				display: none;
+			}
+
+			.location {
+				width: max-content;
+				border: none;
+				background: var(--dark-blue);
+				
+				@include active {
+					border-bottom-left-radius: 0;
+					border-bottom-right-radius: 0;
+				}
+
+				&__items {
+					width: 100%;
+					border: none;
+					background: var(--dark-blue);
+				}
+			}
 		}
 	}
 
 	&__lists {
-		display: flex;
+
 		@include mobile {
-			max-width: 320px;
+			width: 100%;
+			padding: 0 15px;
 			margin: 0 auto;
-			flex-direction: column;
 		}
 		
 		@include desktop {
+			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
 		}
 	}
 
 	&__list {
-		display: flex;
-		align-items: center;
-		
+	
 		@include desktop {
 			&:not(:last-child) {
 				margin-right: 22px;
@@ -134,9 +214,9 @@
 	}
 
 	&__link {
-    display: inline-flex;
+		display: flex;
     align-items: center;
-		padding: 17px;
+		padding: 17px 0;
 		font-family: var(--font-secondary);
 		font-weight: 600;
 		font-size: 16px;
@@ -147,6 +227,15 @@
 
 		@include hover {
 			color: var(--color-gold);
+		}
+
+		&:active {
+			color: var(--color-gold);
+		}
+
+		@include desktop {
+			padding: 17px;
+			display: inline-flex;
 		}
 	}
 
@@ -179,7 +268,9 @@
 
 		&::after {
 			top: 1px;
-			transform: rotate(45deg);
+			@include mobile {
+				transform: rotate(45deg);
+			}
 			@include desktop {
 				top: 0;
 			}
@@ -187,7 +278,10 @@
 
 		&::before {
 			bottom: 1px;
-			transform: rotate(-45deg);
+			
+			@include mobile {
+				transform: rotate(-45deg);
+			}
 			
 			@include desktop {
 				bottom: 0;
@@ -268,58 +362,116 @@
 			}
 		}
 	}
+
+	&__back {
+		display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 0;
+		font-weight: 700;
+		font-size: 12px;
+		color: var(--color-white);
+		&-icon {
+			margin-right: 10px;
+			display: inline-block;
+			width: 27px;
+			height: 14px;
+			fill: none;
+		}
+	}
 }
 
 .submenu {
-	position: absolute;
-	top: 100%;
+	position: fixed;
+	top: 0;
 	left: 0;
-	padding: 24px 32px;
-	background: var(--color-blue);
-	border-radius: 4px;
-	width: max-content;
+	right: 0;
 	display: flex;
 	align-items: flex-start;
 	opacity: 0;
+	padding: 20px 15px;
+	background: var(--color-blue);
 	visibility: hidden;
 	transition: $duration-normal;
+	
+	@include mobile {
+		margin: 0 auto;
+		flex-direction: column;
+		transform: translateX(100%);
+
+		@include active {
+			opacity: 1;
+			visibility: visible;
+			transform: translateX(0);
+		}
+	}
+
+	@include desktop {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		padding: 24px 32px;
+		border-radius: 4px;
+		width: max-content;
+	}
 
 	&__list{
-		width: max-content;
 
-		&:not(:last-child) {
-			margin-right: 80px;
+		@include mobile {
+			margin-bottom: 30px;
+		}
+
+		@include desktop {
+			width: max-content;
+
+			&:not(:last-child) {
+				margin-right: 80px;
+			}
 		}
 	}
 
 	&__title {
-		margin-bottom: 16px;
+		margin-bottom: 10px;
 		font-weight: 700;
-		font-size: 16px;
-		line-height: 22px;
 		color: var(--color-white);
+
+		@include desktop {
+			margin-bottom: 16px;
+			font-size: 16px;
+			line-height: 22px;
+		}
 	}
 
 	&__wrapper {
-		display: flex;
-		align-items: flex-start;
+		@include desktop {
+			display: flex;
+			align-items: flex-start;
+		}
 	}
 
 	&__block {
 		display: flex;
     flex-direction: column;
-		max-width: 238px;
+		
+		@include desktop {
+			max-width: 238px;
 
-		&:not(:last-child) {
-			margin-right: 20px;
+			&:not(:last-child) {
+				margin-right: 20px;
+			}
 		}
 	}
 
 	&__link {
 		font-weight: 400;
-		font-size: 14px;
-		line-height: 20px;
+		font-size: 12px;
+		line-height: 16px;
 		color: var(--light-gray);
+
+		@include desktop {
+			font-size: 14px;
+			line-height: 20px;
+		}
 
 		&:not(:last-child) {
 			margin-bottom: 10px;
@@ -336,13 +488,14 @@
 	padding: 7px 20px;
 	font-weight: 700;
 	font-size: 14px;
-	line-height: 20px;
+	line-height: 1;
 	color: var(--light-gray);
 	border: 1px solid var(--color-blue);
 	border-radius: 20px;
 	&__current {
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		cursor: pointer;
 
 		@include hover {
@@ -355,8 +508,28 @@
 		margin-right: 10px;
 		display: inline-block;
 		width: 18px;
-		height: 22px;
+		height: 18px;
 		flex: 0 0 18px;
+	}
+
+	&__arrow {
+		position: relative;
+		margin-left: 8px;
+		display: inline-block;
+    width: 10px;
+    height: 10px;
+
+		&::after,
+		&::before {
+			content: "";
+			position: absolute;
+			top: -3px;
+			width: 100%;
+			height: 100%;
+			border-top: 2px solid var(--light-gray);
+			border-left: 2px solid var(--light-gray);
+			transform: rotate(225deg)
+		}
 	}
 
 	&__items {
@@ -373,7 +546,17 @@
 		visibility: hidden;
 	}
 
+	&__item {
+		display: flex;
+    flex-direction: column;
+	}
+
 	&__link {
+
+		@include mobile {
+			padding: 10px 0;
+		}
+
 		@include hover {
 			color: var(--color-gold);
 		}

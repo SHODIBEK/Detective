@@ -4,7 +4,13 @@ prepend vars
 	//-
 
 append vars
-	//-
+	- title = 'Главная страница'
+	- meta.description = 'Описание страницы'
+	- meta.viewport = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover'
+	- link.icon = 'favicon.ico'
+	- meta.formatDetection = 'telephone=no'
+	- meta.themeColor = '#0088DC'
+	- defaultLink = 'javascript:void(0);'
 
 block content
 	include pug/data
@@ -12,8 +18,8 @@ block content
 	.site
 		include pug/components/header
 
-	//- 	include pug/pages/home
+		//- 	include pug/pages/home
 
-	//- 	include pug/components/footer
+		include pug/components/footer
 
 	//- include pug/components/analytics

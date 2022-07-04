@@ -36,3 +36,15 @@ clickAnotherElement('.location');
 
 $('.languages').on('click', activeToggle);
 clickAnotherElement('.languages');
+
+$('.header__hasmenu .header__link').on('click', (e) => {
+  e.preventDefault();
+  let current = $(e.currentTarget);
+
+  current.parent().find('.submenu').addClass('is-active');
+})
+
+$('.header__back').on('click', (e) => {
+  let current = $(e.currentTarget);
+  current.closest('.submenu').removeClass('is-active');
+});

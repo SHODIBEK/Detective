@@ -1,6 +1,36 @@
 footer.footer
-	.footer__copyright
-		span(data-actual-year)
-
-	.footer__developer
-		| &copy;&nbsp;Девять линий
+	.container
+		.footer__wrapper
+			.footer__left
+				a(href="/").footer__logo
+					img(src="./logo.png", alt="logo")
+				.footer__copyright.for-desktop
+					| &copy; 2021 Детективное агенство
+			.footer__center
+				ul.nav
+					each object in data.footer.menu
+						li.nav__item
+							a(href!=object.url).nav__link!=object.name
+			.footer__right
+				.footer__number
+					b 8-812-715-15-08
+					span Санкт-Петербург
+				.footer__mail
+					a(href="mailto:o-d-b.org@rambler.ru").footer__link
+						| o-d-b.org@rambler.ru
+				.footer__social.for-desktop
+					.socials
+						.socials__items
+							each object in data.footer.socials
+								.socials__item
+									a(href="#").socials__link
+										+svg(object).socials__icon
+			.footer__mobile.for-mobile
+				.socials
+					.socials__items
+						each object in data.footer.socials
+							.socials__item
+								a(href="#").socials__link
+									+svg(object).socials__icon
+				.footer__copyright
+					| &copy; 2021 Детективное агенство

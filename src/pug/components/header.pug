@@ -9,6 +9,19 @@ header.header
 				img(src="./logo.png", alt="logo")
 
 			nav.header__menu
+				.header__menu-location
+					.location
+						.location__current
+							+svg('pin').location__icon
+							span.location__text Великий Новгород
+							span.location__arrow
+						.location__items
+							.location__item
+								a.location__link(href="#")
+									| Санкт-Петербург
+							.location__item
+								a.location__link(href="#")
+									| Москва
 				ul.header__lists
 					each object, key in data.header.menu
 						li.header__list(class=object.submenu ? 'header__hasmenu' : '')
@@ -22,6 +35,10 @@ header.header
 										span
 							if(object.submenu)
 								.submenu
+									.for-mobile
+										.header__back
+											+svg('arrow-left').header__back-icon
+											| Вернуться назад
 									each submenuItem in object.submenu
 										ul.submenu__list
 											li.submenu__title!=submenuItem.title
@@ -32,6 +49,11 @@ header.header
 												.submenu__block
 													each submenuLink in submenuItem.items[1]
 														a.submenu__link(href="#")!=submenuLink
+				.header__menu-number.for-mobile
+					b +7 921 945-02-20
+					span Санкт-Петербург
+				.header__menu-social
+					include social
 			.header__right
 				.header__other
 					.header__number

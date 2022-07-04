@@ -33,7 +33,7 @@ function closeMenu() {
 
 		helpers.$header.removeClass('is-menu-opened');
 
-		$('.header__menu').removeClass('is-active');
+		$('.header__menu, .submenu').removeClass('is-active');
 
 		setTimeout(() => {
 			$('.header__menu').addClass('is-hidden');
