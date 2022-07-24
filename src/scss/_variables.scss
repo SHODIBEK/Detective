@@ -20,7 +20,7 @@ $easing-in: ease-in;
 // Settings
 $desktop: 1024;
 $desktop-xl: 1800;
-$laptop: 1440;
+$laptop: 1200;
 $tablet: 768;
 $mobile: 320;
 $desktop-vh: 750;
@@ -33,5 +33,7 @@ $desktop-vh: 750;
   --light-gray: #cbd5ee;
   --color-white: #fff;
   --color-gold: #bc9c6c;
+  --color-darkGold: #8e744e;
   --color-blue: #293543;
+  --color-lightBlue: #1C242D;
 }

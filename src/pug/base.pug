@@ -284,6 +284,7 @@ html(class=html.classList)&attributes(html.attrs)
 	body(class=body.classList)&attributes(body.attrs)
 		block body-start
 		block content
+		include components/popup
 		block scripts
 			script.
 				if (!('IntersectionObserver' in window)) {
@@ -293,4 +294,6 @@ html(class=html.classList)&attributes(html.attrs)
 				}
 			script(src!=`${baseDir}js/vendor.js?v=${Date.now()}`)
 			script(src!=`${baseDir}js/main.js?v=${Date.now()}`)
+			script
+				include ../js/components/validate.js
 		block body-end

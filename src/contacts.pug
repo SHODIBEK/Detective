@@ -1,0 +1,27 @@
+extends pug/base
+
+prepend vars
+	//-
+
+append vars
+	- title = 'Контакты'
+	- meta.description = 'Описание страницы'
+	- meta.viewport = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover'
+	- link.icon = './favicon.ico'
+	- meta.formatDetection = 'telephone=no'
+	- meta.themeColor = '#bc9c6c'
+	- defaultLink = 'javascript:void(0);'
+	- body.classList = ['inner-page']
+
+block content
+	include pug/data
+
+	.site
+		include pug/components/header
+
+		main.content
+			include pug/pages/contact
+
+		include pug/components/footer
+
+	//- include pug/components/analytics

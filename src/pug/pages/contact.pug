@@ -1,0 +1,46 @@
+.contacts
+  .line.line-2
+    span
+    span
+    span
+  .container
+    .contacts__wrapper
+      h1.title.contacts__title
+        | Контакты
+      .contacts__content
+        .contacts__items
+          each contact in data.contacts
+            .contacts__item
+              .contacts__block
+                .contacts__city
+                  +svg('location').contacts__icon
+                  span!=contact.name
+                ul.contacts__lists
+                  each contatInfo in contact.lists
+                    li.contacts__list
+                      span!=contatInfo.title
+                      strong!=contatInfo.subtitle
+              .contacts__map
+                iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2243.6860329950346!2d37.638117!3d55.7813246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a74100f1381%3A0xecbbf5ec09cf9473!2z0J_RgNC-0YLQvtC_0L7Qv9C-0LLRgdC60LjQuSDQv9C10YAuLCAxOSwg0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8sIDEyOTA5MA!5e0!3m2!1sru!2s!4v1657899182522!5m2!1sru!2s' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade')
+        .contacts__info
+          | По вопросам работы и приобретения "заряженных" сотовых звоните 8-950-043-66-71
+        .gray-block
+          .line
+            span
+            span
+            span
+          h5 Обратная связь
+          form.gray-block__form
+            .modal__form-top
+              .form-group
+                input(type="text" name="name" placeholder="Ваше имя*" required)
+              .form-group
+                input(type="email" name="email" placeholder="Email*" required)
+              .form-group
+                input(type="text" name="phone" placeholder="Ваш телефон")
+            .modal__form-bottom
+              .form-group
+                textarea(name="message" placeholder="Ваш вопрос")
+            .modal__form-button
+              button(type="submit").button.button-secondary
+                | Задать вопрос

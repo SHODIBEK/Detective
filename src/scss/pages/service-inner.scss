@@ -1,0 +1,453 @@
+.services-page {
+  .content {
+    padding-top: 0;
+  }
+}
+
+.services-inner {
+  padding-bottom: 72px;
+  @include desktop {
+    padding-bottom: 55px;
+  }
+  &__header {
+    margin-bottom: 48px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    @include mobile {
+      padding-top: 171px;
+      padding-bottom: 67px;
+    }
+
+    @include desktop {
+      margin-bottom: 176px;
+      padding-top: 246px;
+      min-height: 610px;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 100% 610px;
+  }
+
+  &__bg2 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 1460px;
+    margin: 0 auto;
+
+    img {
+      position: absolute;
+      bottom: -15px;
+      right: -40px;
+      width: 201px;
+
+      @include desktop {
+        bottom: -150px;
+        right: 0;
+        width: 484px;
+      }
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__line {
+    right: -49px;
+    top: 17.3%;
+    width: 98px;
+    height: 98px;
+    border-color: var(--color-blue);
+
+    @include desktop {
+      top: 11.3%;
+      right: unset;
+      left: -172px;
+      width: 344px;
+      height: 344px;
+    }
+
+    span {
+      &:nth-child(1) {
+        width: 52px;
+        height: 52px;
+        border-color: var(--color-blue);
+
+        @include desktop {
+          width: 184px;
+          height: 184px;
+        }
+      }
+
+      &:nth-child(2) {
+        width: calc(100vw - 15px);
+        left: calc(-100vw - -65px);
+        background-color: var(--color-blue);
+
+        @include desktop {
+          left: unset;
+          width: 50vw;
+        }
+      }
+    }
+  }
+
+  &__content {
+    @include desktop {
+      padding: 0 100px;
+    }
+  }
+
+  &__top {
+    margin-bottom: 72px;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 16px;
+    }
+
+    @include desktop {
+      margin-bottom: 80px;
+      display: grid;
+      grid-template-columns: 1fr 560px;
+      gap: 92px;
+    }
+  }
+
+  &__text {
+
+    @include desktop {
+      margin-top: 100px;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--light-gray);
+
+      @include desktop {
+        font-size: 16px;
+        line-height: 22px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .button {
+      margin-top: 32px;
+      @include desktop {
+        margin-top: 48px;
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    border-radius: 6px;
+    width: 288px;
+    height: 194px;
+    overflow: hidden;
+
+    @include mobile {
+      margin: 0 auto;
+    }
+
+    @include desktop {
+      width: 560px;
+      height: 400px;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+  }
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+
+  @include hover {
+    color: var(--color-gold);
+
+    svg {
+      transform: translateX(-5px);
+      transition: $duration-normal;
+    }
+  }
+
+  svg {
+    margin-right: 16px;
+    display: inline-block;
+    width: 27px;
+    height: 14px;
+    fill: none;
+    stroke: var(--color-gold);
+    transition: $duration-normal;
+  }
+}
+
+.default-section {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: #fff;
+    clear:both;
+
+
+    @include desktop {
+      margin-bottom: 32px;
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+
+  br {
+    clear: both;
+  }
+
+  p, 
+  strong {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--light-gray);
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    @include desktop {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  strong {
+    display: block;
+    font-weight: 700;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  li,
+  table {
+    strong {
+      display: inline;
+    }
+  }
+
+  ul {
+    @include mobile {
+      width: 100%!important;
+      float: none!important;
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    @include desktop {
+      margin-bottom: 32px;
+    }
+
+    &::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    li {
+      position: relative;
+      padding-left: 26px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--light-gray);
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--color-gold);
+      }
+
+      @include desktop {
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+  }
+}
+
+.gray-block {
+  margin-top: 72px;
+  padding: 24px 16px;
+  position: relative;
+  background-color: var(--color-blue);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  @include desktop {
+    margin-top: 176px;
+    padding: 48px 72px;
+  }
+
+  &__buttons {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 32px;
+    z-index: 2;
+
+    @include mobile {
+      justify-content: center;
+    }
+
+    @include desktop {
+      gap: 24px;
+    }
+  }
+
+  strong {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--light-gray);
+    text-align: center;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    @include desktop {
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+
+    @include mobile {
+      text-align: center;
+    }
+
+    @include desktop {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 31px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+
+    @include desktop {
+      font-size: 48px;
+      line-height: 58px;
+    }
+  }
+
+  &__form {
+    margin-top: 16px;
+
+    @include desktop {
+      margin-top: 32px;
+    }
+  }
+
+  .line {
+    right: -80px;
+    bottom: 0;
+
+    span {
+      &:nth-child(2) {
+        left: -74px;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(45deg);
+      }
+    }
+
+    @include desktop {
+      right: -199px;
+      bottom: -180px;
+
+      span {
+        &:nth-child(2) {
+          left: -257.5px;
+        }
+        
+      }
+    }
+  }
+}

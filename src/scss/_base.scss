@@ -107,7 +107,7 @@ iframe {
 	display: block;
 }
 
-.btn {
+.button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -119,14 +119,85 @@ iframe {
 	transition: $duration-normal;
 	user-select: none;
 
-	&__content {
-		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		min-width: 100%;
-		color: currentColor;
-		transform: translateZ(0);
+	&-primary {
+		padding: 0 24px;
+		height: 54px;
+		background: var(--color-gold);
+		border-radius: 2px;
+		font-family: var(--font-secondary);
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 22px;
+		letter-spacing: 0.02em;
+		color: #fff;
+		text-shadow: 0px 1px 2px rgba(6, 17, 29, 0.25);
+
+		@include hover {
+			box-shadow: 0px 6px 18px rgba(143, 113, 69, 0.4);
+		}
+
+		&:active {
+			background: var(--color-darkGold);
+		}
+	}
+
+	&-secondary {
+		padding: 0 16px;
+		height: 37px;
+		font-family: var(--font-secondary);
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 1;
+		letter-spacing: 0.02em;
+		color: #fff;
+		border: 1px solid var(--color-gold);
+		border-radius: 2px;
+		svg {
+			margin-left: 8px;
+			display: inline-block;
+			width: 27px;
+			height: 13px;
+			fill: none;
+			stroke: var(--color-gold);
+		}
+
+		@include hover {
+			background-color: var(--dark-blue);
+			box-shadow: 0px 4px 10px rgba(143, 113, 69, 0.4);
+		}
+
+		@include desktop {
+			padding: 0 24px;
+			height: 51px;
+			font-size: 16px;
+		}
+	}
+
+	&-third {
+		padding: 0 12px;
+		height: 26px;
+		font-weight: 700;
+    font-size: 11px;
+		line-height: 1;
+		color: var(--light-gray);
+		border: 1px solid var(--color-blue);
+		border-radius: 20px;
+
+		@include desktop {
+			padding: 0 20px;
+			height: 36px;
+			font-size: 14px;
+		}
+
+		@include active {
+			pointer-events: none;
+			background-color: var(--color-blue);
+		}
+
+		@include hover {
+			border-color: var(--color-gold);
+			box-shadow: 0px 4px 10px rgba(143, 113, 69, 0.4);
+		}
 	}
 }
 
@@ -154,6 +225,290 @@ iframe {
 	// stylelint-disable-next-line
 	min-height: var(--vh);
 	overflow: hidden;
+}
+
+.location-second {
+	display: flex;
+	align-items: center;
+	padding: 9px 23px;
+	width: max-content;
+	border: 1px solid var(--color-blue);
+	border-radius: 20px;
+	transition: $duration-normal;
+
+	@include active {
+		pointer-events: none;
+		cursor: none;
+		background-color: var(--color-blue);
+	}
+
+	@include hover {
+		background-color: var(--color-blue);
+	}
+
+	&__icon {
+		width: 18px;
+		height: 22px;
+		flex: 0 0 18px;
+		fill: var(--color-gold);
+	}
+
+	&__text {
+		font-weight: 700;
+		font-size: 14px;
+		line-height: 1;
+		color: #fff;
+	}
+}
+
+.form-group {
+	position: relative;
+	input {
+		opacity: 0.5;
+		padding: 0 16px;
+		height: 38px;
+		font-weight: 550;
+		font-size: 14px;
+		line-height: 1;
+		letter-spacing: 0.02em;
+		color: var(--color-gold);
+		border: 1px solid var(--light-gray);
+		border-radius: 2px;
+		background: transparent;
+
+		@include mobile {
+			width: 100%;
+		}
+
+		@include desktop {
+			padding: 0 24px;
+			height: 51px;
+			font-size: 16px;
+		}
+
+		&:focus-visible {
+			outline: none;
+		}
+
+		&::placeholder {
+			color: var(--light-gray);
+		}
+
+		&:focus {
+			opacity: 1;
+
+			&::placeholder {
+				color: var(--light-gray);
+			}
+		}
+
+		&.error {
+			border-color: red;
+		}
+	}
+
+	label.error {
+		position: absolute;
+    top: 110%;
+    left: 0;
+    color: red;
+    font-size: 9px;
+	}
+
+	textarea {
+		padding: 16px 24px;
+		width: 100%;
+		min-height: 115px;
+		opacity: 0.5;
+		font-weight: 550;
+		font-size: 14px;
+		line-height: 1;
+		letter-spacing: 0.02em;
+		color: var(--color-gold);
+		border: 1px solid var(--light-gray);
+		border-radius: 2px;
+		background-color: transparent;
+		resize: vertical;
+
+		@include desktop {
+			font-size: 16px;
+		}
+
+		&:focus-visible {
+			outline: none;
+		}
+
+		&::placeholder {
+			color: var(--light-gray);
+		}
+
+		&:focus {
+			opacity: 1;
+
+			&::placeholder {
+				color: var(--light-gray);
+			}
+		}
+	}
+}
+
+.absolute-social {
+	position: absolute;
+	right: 20px;
+	top: 63%;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	z-index: 2;
+
+	@include desktop {
+		right: 100px;
+		bottom: 106px;
+		top: unset;
+	}
+
+	&__link {
+		display: block;
+		width: 32px;
+		height: 32px;
+		flex: 0 0 32px;
+	}
+}
+
+.title {
+	margin-top: 0;
+	margin-bottom: 16px;
+	font-family: var(--font-secondary);
+	font-weight: 700;
+	font-size: 26px;
+	line-height: 31px;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	color: var(--color-gold);
+
+	@include desktop {
+		margin-bottom: 32px;
+		font-size: 48px;
+		line-height: 58px;
+	}
+	
+	&-secondary {
+		margin-top: 0;
+		margin-bottom: 24px;
+		padding-bottom: 30px;
+		position: relative;
+		font-weight: 900;
+		font-size: 40px;
+		line-height: 39px;
+		color: var(--dark-blue);
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+
+		@include desktop {
+			padding-bottom: 5px;
+			font-size: 102px;
+			line-height: 98px;
+		}
+
+		span {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			display: block;
+			font-family: var(--font-secondary);
+			font-weight: 700;
+			font-size: 26px;
+			line-height: 31px;
+			letter-spacing: 0.02em;
+			text-transform: uppercase;
+			color: var(--color-gold);
+
+			@include desktop {
+				font-size: 48px;
+				line-height: 58px;
+			}
+		}
+	}
+}
+
+.content {
+	padding-top: 134px;
+
+	@include desktop {
+		padding-top: 246px;
+	}
+
+	.title-secondary {
+		color: var(--color-blue);
+	}
+}
+
+.swiper {
+
+	&-navigation {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		transform: translateY(-50%);
+		z-index: 2;
+	}
+
+	&-button {
+		&-prev,
+		&-next {
+			position: absolute;
+			width: 43px;
+			height: 14px;
+			cursor: pointer;
+			transition: $duration-normal;
+
+			.is-disabled {
+				opacity: 0.4;
+			}
+
+			@include hover {
+				opacity: 0.4;
+			}
+
+			svg {
+				fill: none;
+				stroke: var(--light-gray);
+
+				@include desktop {
+					stroke: var(--dark-blue);
+				}
+			}
+		}
+
+		&-prev {
+			left: 0;
+			@include desktop {
+				left: -50px;
+			}
+
+			@include laptop {
+				left: 0;
+			}
+		}
+
+		&-next {
+			right: 0;
+			@include desktop {
+				right: -50px;
+			}
+
+			@include laptop {
+				right: 0;
+			}
+		}
+
+		&-disabled {
+			opacity: 0.4;
+			cursor: none;
+			pointer-events: none;
+		}
+	}
 }
 
 /* stylelint-disable */

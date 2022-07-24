@@ -1,0 +1,174 @@
+.contacts {
+  padding-bottom: 72px;
+
+  @include desktop {
+    padding-bottom: 80px;
+  }
+
+  &__wrapper {
+    @include desktop {
+      padding: 0 145px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    @include desktop {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__block {
+    padding: 25px 19px;
+    background-color: var(--color-lightBlue);
+    border-radius: 4px 4px 0px 0px;
+
+    @include desktop {
+      padding: 63px 60px;
+      border-radius: 4px 0px 0px 4px;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+
+    @include desktop {
+      display: grid;
+      grid-template-columns: 1fr 570px;
+
+      &:not(:last-child) {
+        margin-bottom: 64px;
+      }
+    }
+  }
+
+  &__city {
+    margin-bottom: 16px;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: #fff;
+    display: flex;
+    align-items: center;
+
+    @include desktop {
+      margin-bottom: 32px;
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+
+  &__icon {
+    margin-right: 11px;
+    display: inline-block;
+    width: 18px;
+    height: 22px;
+  }
+
+  &__list {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+
+      @include desktop {
+        margin-bottom: 24px;
+      }
+    }
+
+    span {
+      display: block;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      color: var(--light-gray);
+
+      @include desktop {
+        margin-bottom: 8px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+
+    strong {
+      display: block;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 20px;
+      color: #fff;
+
+      @include desktop {
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  &__map {
+    display: block;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 0px 0px 4px 4px;
+
+    @include desktop {
+      height: 100%;
+      border-radius: 0px 4px 4px 0px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__info {
+    margin-top: 48px;
+    padding: 32px 18px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: var(--light-gray);
+    background-color: var(--color-lightBlue);
+    border-radius: 4px 0px 0px 4px;
+
+    @include desktop {
+      margin-top: 64px;
+      padding: 48px 72px;
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+
+  .line-2 {
+    left: -80px;
+    bottom: 700px;
+    border-color: var(--color-blue);
+
+    @include desktop {
+      left: 117px;
+      bottom: 600px;
+    }
+
+    span {
+      &:nth-child(1) {
+        border-color: var(--color-blue);
+      }
+      &:nth-child(2) {
+        left: 76px;
+        background-color: var(--color-blue);
+
+        @include desktop {
+          width: 574px;
+          left: -117px;
+        }
+      }
+      &:nth-child(3) {
+        background-color: var(--color-blue);
+      }
+    }
+  }
+}

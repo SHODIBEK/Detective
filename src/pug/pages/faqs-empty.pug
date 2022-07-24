@@ -1,0 +1,44 @@
+.faqs
+  .line-2.line
+    span
+    span
+  .line-3.line.js-line-faqs
+    span
+    span
+  .container
+    .faqs__wrapper
+      h1.title
+        | Вопрос-ответ
+      .faqs__content
+        .faqs__title
+          | Поис вопроса
+        form(action="/").faqs__form
+          .form-group
+            input(type="text" name="search" placeholder="Как вопрос найти?")
+          button(type="submit").button.button-primary.faqs__button
+            +svg('search').faqs__icon
+            | Найти
+        .faqs__empty
+          h5 По вашему запросу “пропала собака” вопросов не найдено
+          p Воспользуйтесь формой ниже и задайте свой вопрос нашим детективам
+      .gray-block
+        .line
+          span
+          span
+          span
+        strong Не нашли вопроса на интересующую вас тему? 
+        strong Напишите нам и мы обязательно на него ответим!
+        form.gray-block__form
+          .modal__form-top
+            .form-group
+              input(type="text" name="name" placeholder="Ваше имя*" required)
+            .form-group
+              input(type="email" name="email" placeholder="Email*" required)
+            .form-group
+              input(type="text" name="city" placeholder="Ваш город")
+          .modal__form-bottom
+            .form-group
+              textarea(name="message" placeholder="Ваш вопрос")
+          .modal__form-button
+            button(type="submit").button.button-secondary
+              | Задать вопрос

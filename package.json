@@ -66,17 +66,20 @@
 	"dependencies": {
 		"@babel/plugin-transform-runtime": "7.14.5",
 		"@babel/runtime": "7.14.8",
+		"@fancyapps/ui": "4.0.27",
 		"body-scroll-lock": "3.1.5",
 		"core-js": "3.15.2",
 		"husky": "7.0.1",
 		"jquery": "3.6.0",
+		"jquery-validation": "1.19.5",
 		"lozad": "1.16.0",
 		"ninelines-sharing": "1.5.8",
 		"ninelines-ua-parser": "1.1.6",
 		"normalize.css": "8.0.1",
 		"object-fit-images": "3.2.4",
 		"object-fit-videos": "1.0.4",
-		"svg4everybody": "2.1.9"
+		"svg4everybody": "2.1.9",
+		"swiper": "8.3.0"
 	},
 	"husky": {
 		"hooks": {

@@ -1,0 +1,42 @@
+.prices
+  .line
+    span
+    span
+  .container
+    .prices__wrapper
+      h1.title
+        | Цены на услуги
+      .prices__content
+        .prices__items
+          each price in data.prices
+            .prices__item
+              .prices__title!=price.title
+              if(price.tabs)
+                .prices__buttons
+                  button(type="button").button.button-third.prices__button.js-tab__link.is-active
+                    | Юридическим лицам
+                  button(type="button").button.button-third.prices__button.js-tab__link
+                    | Физическим лицам
+              if(price.subtitle)
+                .prices__subtitle!=price.subtitle
+              .prices__blocks(class=price.halfBlock ? 'prices__blocks--half' : '')
+                each priceBlock, index in price.items
+                  .prices__block(class=price.tabs ? 'js-tab__block prices__block--tab' : '' class=(index === 0 && price.tabs ? 'is-active' : ''))
+                    if(priceBlock.header)
+                      .prices__header!=priceBlock.header
+                    .prices__body
+                      each priceBody in priceBlock.body
+                        .prices__info
+                          p!=priceBody.desc
+                          strong!=priceBody.count
+      .gray-block
+        .line
+          span
+          span
+          span
+        strong Заказ выполняется при 100 % предоплате.
+        strong Варианты оплаты: 
+        .gray-block__buttons
+          p Наличными при встрече
+          p Банковской картой
+          p Денежный перевод  через  Вестерн Юнион

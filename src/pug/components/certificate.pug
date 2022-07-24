@@ -1,0 +1,41 @@
+section.certificate
+  .line
+    span
+    span
+    span
+  .container
+    .certificate__wrapper
+      h2.certificate__title
+        | Наши сертификаты и благодарственные письма
+      .certificate__buttons
+        button(type="button").js-tab__link.button.button-third.is-active
+          | Сертификаты
+        button(type="button").js-tab__link.button.button-third
+          | Благодарственные письма
+      .certificate__content
+        .certificate__tab.js-tab__block.is-active
+          .swiper
+            .swiper-wrapper
+              - for(var i = 0; i < 5; i++) {
+                .swiper-slide
+                  a(href=`./images/certificate/item-${i+1}.jpg` data-fancybox).certificate__image
+                    img(src=`./images/certificate/item-${i+1}.jpg`, alt="")
+              - }
+          .swiper-navigation
+            .swiper-button-prev
+              +svg('slider-left')
+            .swiper-button-next
+              +svg('slider-right')
+        .certificate__tab.js-tab__block
+          .swiper
+            .swiper-wrapper
+              - for(var i = 0; i < 5; i++) {
+                .swiper-slide
+                  a(href=`./images/certificate/item-${i+1}.jpg` data-fancybox).certificate__image
+                    img(src=`./images/certificate/item-${i+1}.jpg`, alt="")
+              - }
+          .swiper-navigation
+            .swiper-button-prev
+              +svg('slider-left')
+            .swiper-button-next
+              +svg('slider-right')

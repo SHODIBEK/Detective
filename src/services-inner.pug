@@ -1,0 +1,32 @@
+extends pug/base
+
+prepend vars
+	//-
+
+append vars
+	- title = 'Оказываем услуги - Поиск людей'
+	- meta.description = 'Описание страницы'
+	- meta.viewport = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover'
+	- link.icon = './favicon/favicon.ico'
+	- link.appleTouchIcon180x180 = './favicon/apple-touch-icon.png'
+	- link.icon32x32 = './favicon/favicon-32x32.png'
+	- link.icon16x16 = './favicon/favicon-16x16.png'
+	- meta.formatDetection = 'telephone=no'
+	- meta.themeColor = '#bc9c6c'
+	- defaultLink = 'javascript:void(0);'
+	- body.classList = ['inner-page services-page']
+
+block content
+	include pug/data
+
+	.site
+		include pug/components/header
+
+		main.content
+			include pug/pages/services
+			include pug/components/certificate
+			include pug/components/invite
+
+		include pug/components/footer
+
+	//- include pug/components/analytics

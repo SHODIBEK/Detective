@@ -1,0 +1,13 @@
+.pagination
+  .pagination__items
+    a(href="#" title="Предедущая страница").pagination__item.pagination__item--prev
+      +svg('small-arrow-left').pagination__icon
+    - for(var i = 0; i < 5; i++) {
+      a(href="#")(class=i === 1 ? 'pagination__item--active' : '').pagination__item!=i+1
+    - }
+    .pagination__item.pagination__item--dots ...
+    - for(var i = 159; i < 162; i++) {
+      a(href="#").pagination__item!=i+1
+    - }
+    a(href="#" title="Следующая страница").pagination__item.pagination__item--next
+      +svg('small-arrow-right').pagination__icon

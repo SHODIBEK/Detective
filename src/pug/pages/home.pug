@@ -1,33 +1,192 @@
 main.home
-	//- +lazyPicture({
-	//- 	src: `${baseDir}images/mem.jpg`,
-	//- 	alt: 'Мемчик',
-	//- }).home__picture#hello
-
-	//- p.home__text#necessarily
-	//- 	| Это стартовый шаблон для верстки!
-	//- 	br
-	//- 	br
-	//- 	| Обязательно посмотри реализацию:
-	//- 	br
-	//- 	| pug в папке #[code pug/(components|pages)],
-	//- 	br
-	//- 	| js в папке #[code js/(components|modules|pages)],
-	//- 	br
-	//- 	| scss в папке #[code scss/(components|pages)]
-	//- 	br
-	//- 	br
-	//- 	| Не используемые части кода/компонентов можно просто отключить (удалять не рекомендуется)
-	//- 	br
-	//- 	br
-	//- 	| Не забывай читать #[a(href="https://github.com/ninelines-team/ninelines-docs" target="_blank") документацию]!
-
-	//- //- picture.home__picture.home__picture--2#bye
-	//- +lazyPicture({
-	//- 	src: `${baseDir}images/mem-2.jpg`,
-	//- 	alt: 'Мемчик 2',
-	//- }, [
-	//- 	{
-	//- 		srcset: `${baseDir}images/mem-2.jpg`,
-	//- 	}
-	//- ]).home__picture.home__picture--2#bye
+	section.hero
+		.hero__bg(style="background-image: url('./images/content/hero-bg.jpg');")
+		.absolute-social
+			.absolute-social__item
+				a(href="#", title="Whatsapp").absolute-social__link
+					img(src="./images/icons/whatsapp.svg", alt="Whatsapp")
+		.container
+			.hero__line
+				span 
+			.hero__block
+				h1 Детективное агенство
+				p Наше детективное агентство состоит в Международной Ассоциации Частных Детективов с 2009 года. И является сооучередителем Объединения.
+				button(type="button").button.button-primary.js-openModal
+					| Записаться на консультацию
+				.hero__location
+					.location.for-mobile
+						.location__current
+							+svg('pin').location__icon
+							span.location__text Великий Новгород
+							span.location__arrow
+						.location__items
+							.location__item
+								a.location__link(href="#")
+									| Санкт-Петербург
+							.location__item
+								a.location__link(href="#")
+									| Москва
+					a(href="#").location-second.is-active.for-desktop
+						+svg('pin').location-second__icon
+						.location-second__text
+							| Санкт-Петербург
+					a(href="#").location-second.for-desktop
+						+svg('pin').location-second__icon
+						.location-second__text
+							| Великий Новгород
+			img(src="./images/content/hero-img.png", alt="").hero__img
+	section.about
+		.about__line
+			span
+			span
+		.about__line-2
+			span
+		.container
+			.about__wrapper
+				h2.about__title.title
+					| Об агентстве
+				.about__block
+					.about__block-left
+						.about__subtitle
+							p Работа нашего Детективного агентства регламентирована «Законом о частной детективной и охранной деятельности в Российской Федерации». Услуги Детективного агентства доступны как физическим так и юридическим лицам.
+							p Наши высококвалифицированные юристы (адвокаты) обеспечивают юридическое сопровождение деятельности детективного агентства, в частности, вырабатывают тактику их  действий, способы закрепления доказательств, осуществляют подготовку юридических документов, представляют интересы  клиентов  детективного агентствав различных органах, инстанциях, в том числе, в судах, принимают участие в переговорах. 
+						.about__img.for-mobile
+							img(src="./images/content/andrey.jpg", alt="Генеральный директор")
+							img(src="./images/content/mini-img.png", alt="Сертификат").about__miniImg
+							h3.about__name
+								| Матушкин Андрей Николаевич
+							p.about__desc
+								| Генеральный директор
+						.about__grids.grids
+							.grids__title
+								| Почему мы?
+							.grids__items
+								each item in data.about.lists
+									.grids__item
+										.grids__square
+											+svg(item.icon).grids__icon
+										.grids__name!=item.title
+										.grids__subtitle!=item.subtitle
+					.about__block-right
+						.about__img.for-desktop
+							img(src="./images/content/andrey.jpg", alt="Генеральный директор")
+							img(src="./images/content/mini-img.png", alt="Сертификат").about__miniImg
+							h3.about__name
+								| Матушкин Андрей Николаевич
+							p.about__desc
+								| Генеральный директор
+				.about__lists.lists
+					.lists__title
+						| Наши преимущества
+					.lists__items
+						each list in data.about.grids
+							.lists__item
+								.lists__number
+								.lists__name!=list
+	section.section-service
+		.line
+			span
+			span
+			span
+		.section-service__header
+			.container
+				h2.section-service__title.title-secondary
+					| оказываем <br> услуги
+					span С чем мы поможем вам
+		.section-service__content
+			.container
+				.tabs
+					.section-service__buttons
+						.tabs__links
+							button(type="button").button.tabs__link.is-active
+								| Физическим лицам
+							button(type="button").button.tabs__link
+								| Юридическим лицам
+						.section-service__link.for-desktop
+							a(href="services.html").button.button-primary
+								| Все наши услуги
+					.tabs__content
+						.js-line
+							span
+							span
+							span
+						.tabs__block.is-active
+							.tabs__slider
+								.swiper
+									.swiper-wrapper
+										each service in data.services.fiz
+											.swiper-slide
+												a(href="/services-inner.html").tabs__item
+													img(src=`${baseDir}images/services/fiz/${service.image}.jpg`, alt!=service.title).tabs__img
+													p.tabs__text!=service.title
+								.swiper-navigation
+									.swiper-button-prev
+										+svg('slider-left')
+									.swiper-button-next
+										+svg('slider-right')
+						.tabs__block
+							.tabs__slider
+								.swiper
+									.swiper-wrapper
+										each service in data.services.yur
+											.swiper-slide
+												a(href="/services-inner.html").tabs__item
+													img(src=`${baseDir}images/services/yur/${service.image}.jpg`, alt!=service.title).tabs__img
+													p.tabs__text!=service.title
+								.swiper-navigation
+									.swiper-button-prev
+										+svg('slider-left')
+									.swiper-button-next
+										+svg('slider-right')
+					.section-service__link.for-mobile
+						a(href="services.html").button.button-primary
+							| Все наши услуги
+				.section-service__bottom
+					.section-service__text
+						p
+							| Если ни одна из перечисленных услуг вам не подходит, или вам нужен индивидуальный подход, просто напишите нам и мы вам поможем!
+					.section-service__button
+						button(type="button").button.button-secondary.js-openModal
+							| Записаться на консультацию
+							+svg('arrow-right')
+	section.work
+		.line-2
+			span
+			span
+		.container
+			.work__wrapper
+				h2.work__title.title
+					| Как мы работаем
+				.work__lists
+					each lists in data.work.lists
+						.work__list
+							.work__list-number
+							.work__list-title!=lists.title
+							.work__list-subtitle!=lists.subtitle
+	include ../components/certificate
+	section.invite
+		.container
+			.invite__top
+				.invite__block
+					picture.invite__bg
+						source(srcset='./images/invite-bg.jpg' media='(min-width: 1024px)')
+						img(src='./images/invite-mob-bg.jpg' alt='')
+					.invite__block-wrap
+						.invite__text
+							h3
+								| Приглашаем к сотрудничеству
+							p
+								| Мы работаем по всей России и некоторым зарубежным странам, детективное агентство находится в г. Москве (ул. Кржижановского, дом 15 корп.1) и в г. Санкт-Петербург (В.О. 8-ая линия дом 33).
+							p 
+								| Наше детективное агентство заинтересованно в расширении связей с детективными агентствами из других регионов и стран. Мы приглашаем коллег к взаимовыгодному сотрудничеству.
+						.invite__buttons
+							a(href="tel:+79219450220").button.button-secondary
+								| Позвонить нам
+							a(href="mailto:").button.button-secondary
+								| Написать нам
+					.square
+						span
+					.square-line
+						span
+						span
+	include ../components/invite

@@ -6,7 +6,7 @@
 
 @mixin laptop {
 	// change the values for the situation
-	@media (min-width: ($desktop * 1px)) and (max-width: (($laptop - 1) * 1px)) {
+	@media (min-width: ($desktop * 1px)) and (max-width: (($laptop) * 1px)) {
 		@content;
 	}
 }

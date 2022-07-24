@@ -1,0 +1,24 @@
+.modal
+  .modal__wrapper
+    .modal__line
+      span
+      span
+      span
+    span.modal__close.js-closeModal
+    .modal__body
+      .modal__title
+        | Запись на консультацию
+      form(action="/").modal__form
+        .modal__form-top
+          .form-group
+            input(type="text" name="name" placeholder="Ваше имя*" required)
+          .form-group
+            input(type="email" name="email" placeholder="Email*" required)
+          .form-group
+            input(type="text" name="phone" placeholder="Ваш телефон" required)
+        .modal__form-bottom
+          .form-group
+            textarea(name="message" placeholder="Ваш комментарий")
+        .modal__form-button
+          button(type="submit").button.button-secondary
+            | Задать вопрос

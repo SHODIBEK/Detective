@@ -1,7 +1,7 @@
 header.header
 	.container 
 		.header__wrapper
-			button.header__burger.btn.js-burger(type="button")
+			button.header__burger.button.js-burger(type="button")
 				span
 				span
 				span
@@ -9,51 +9,52 @@ header.header
 				img(src="./logo.png", alt="logo")
 
 			nav.header__menu
-				.header__menu-location
-					.location
-						.location__current
-							+svg('pin').location__icon
-							span.location__text Великий Новгород
-							span.location__arrow
-						.location__items
-							.location__item
-								a.location__link(href="#")
-									| Санкт-Петербург
-							.location__item
-								a.location__link(href="#")
-									| Москва
-				ul.header__lists
-					each object, key in data.header.menu
-						li.header__list(class=object.submenu ? 'header__hasmenu' : '')
-							a.header__link(
-								href=object.url
-								title=object.name
-							)
-								!= object.name
+				.header__menu-wrapper
+					.header__menu-location
+						.location
+							.location__current
+								+svg('pin').location__icon
+								span.location__text Великий Новгород
+								span.location__arrow
+							.location__items
+								.location__item
+									a.location__link(href="#")
+										| Санкт-Петербург
+								.location__item
+									a.location__link(href="#")
+										| Москва
+					ul.header__lists
+						each object, key in data.header.menu
+							li.header__list(class=object.submenu ? 'header__hasmenu' : '')
+								a.header__link(
+									href=object.url
+									title=object.name
+								)
+									!= object.name
+									if(object.submenu)
+										span.header__icon
+											span
 								if(object.submenu)
-									span.header__icon
-										span
-							if(object.submenu)
-								.submenu
-									.for-mobile
-										.header__back
-											+svg('arrow-left').header__back-icon
-											| Вернуться назад
-									each submenuItem in object.submenu
-										ul.submenu__list
-											li.submenu__title!=submenuItem.title
-											.submenu__wrapper
-												.submenu__block
-													each submenuLink in submenuItem.items[0]
-														a.submenu__link(href="#")!=submenuLink
-												.submenu__block
-													each submenuLink in submenuItem.items[1]
-														a.submenu__link(href="#")!=submenuLink
-				.header__menu-number.for-mobile
-					b +7 921 945-02-20
-					span Санкт-Петербург
-				.header__menu-social
-					include social
+									.submenu
+										.for-mobile
+											.header__back
+												+svg('arrow-left').header__back-icon
+												| Вернуться назад
+										each submenuItem in object.submenu
+											ul.submenu__list
+												li.submenu__title!=submenuItem.title
+												.submenu__wrapper
+													.submenu__block
+														each submenuLink in submenuItem.items[0]
+															a.submenu__link(href="services-inner.html")!=submenuLink
+													.submenu__block
+														each submenuLink in submenuItem.items[1]
+															a.submenu__link(href="services-inner.html")!=submenuLink
+					.header__menu-number.for-mobile
+						b +7 921 945-02-20
+						span Санкт-Петербург
+					.header__menu-social
+						include social
 			.header__right
 				.header__other
 					.header__number
@@ -66,7 +67,7 @@ header.header
 						.location
 							.location__current
 								+svg('pin').location__icon
-								span.location__text СПб
+								span.location__text Санкт-Петербург
 							.location__items
 								.location__item
 									a.location__link(href="#")

@@ -1,0 +1,81 @@
+.services-inner
+  .services-inner__header
+    .services-inner__bg(style="background-image: url('./images/content/hero-bg.jpg');")
+    .services-inner__bg2
+      img(src="./images/content/hero-img.png", alt="")
+    .container
+      h1.title-secondary.services-inner__title
+        | оказываем <br> услуги
+        span Поиск людей 
+      a(href="/").back-link
+        +svg('arrow-left')
+        | Вернуться назад к услуга
+  .services-inner__wrapper
+    .line.services-inner__line
+      span
+      span
+    .container
+      .services-inner__content
+        .services-inner__top
+          .services-inner__text
+            p
+              | Поиск людей – довольно сложная задача. Для этого требуется определённый оперативный опыт, хорошие рабочие отношения с правоохранительными органами, умение общаться с людьми. Если Вы не можете найти друга детства, одноклассника, родственника или просто близкого человека, мы рекомендуем Вам поручить эту работу тем, кто это умеет. Мы успешно осуществляем поиск людей более 5-ти лет.
+            button(type="button").button.button-primary
+              | Заказать услугу
+          .services-inner__image
+            img(src="./images/services/fiz/item-1.jpg", alt="Поиск людей")
+        .services-inner__center
+          .default-section
+            h2
+              | Поиск людей по базам данных
+            strong(style="color: rgb(255,255,255);")
+              | Детективы нашего агентства в первую очередь производят поиск людей по следующим базам:
+            ul(style="width: 50%; float: left;")
+              each service in data.services.inner[0]
+                li!=service
+            ul(style="width: 50%; float: left;")
+              each service in data.services.inner[1]
+                li!=service
+            p Это далеко не полный список доступных нам баз данных.
+            br
+            br
+            br
+            strong(style="color: rgb(255,255,255);")
+              | По этим базам, при поиске людей, наши сотрудники находят:
+            ul(style="width: 50%; float: left;")
+              each service in data.services.inner[2]
+                li!=service
+            ul(style="width: 50%; float: left;")
+              each service in data.services.inner[3]
+                li!=service
+            br
+            br
+            br
+            br
+            h2
+              | Поиск людей оперативными средствам
+            p
+              | Часто поиск людей по базам данных не даёт результатов. В этом случае мы используем свои профессиональные навыки и связи и поможем узнать адрес или другую интересующую информацию. В поиске людей мы сотрудничаем с большим количеством частных детективов из разных городов России и зарубежья. Это позволяет нам осуществлять поиск людей с высоким процентом успеха.
+            p 
+              | Мы можем отследить переезды людей в другие города и страны, ведь розыск людей наше призвание. Совершенно не обязательно при этом, чтобы человек был где то прописан, хотя намного проще найти по адресу. Мы найдем человека, даже если он живёт на съёмной квартире или в любом другом месте.
+            br
+            br
+            br
+            br
+            h2
+              | Поиск людей с использованием обученных собак
+            p
+              | Профессиональный кинолог со специально обученной собакой может осуществлять поиск людей по следам в городе оставленным до 5-ти часов назад. В лесной зоне след сохраняется до 5-ти суток. В сельской местности до 3-х дней.
+        .services-inner__bottom
+          .gray-block
+            .line
+              span
+              span
+              span
+            strong С расценки на поиск людей и прочей информации вы можете ознакомиться на странице Цены
+            strong Цены на услуги детективного агентства Вы так же можете уточнить связавшись с нами.
+            .gray-block__buttons
+              a(href="prices.html").button.button-secondary
+                | Посмотреть расценки
+              a(href="contacts.html").button.button-secondary
+                | Связаться с  нам

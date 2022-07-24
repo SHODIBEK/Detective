@@ -1,0 +1,31 @@
+.services
+  .container
+    .services__wrapper
+      h1.services__title.title-secondary
+        | оказываем <br>услуги
+        span Физичеким лицам
+      .services__buttons
+        a(href="services-fiz.html").services__button.button.button-third.is-active
+          | Физическим лицам
+        a(href="services-yur.html").services__button.button.button-third
+          | Юридическим лицам
+      .services__items
+        each service in data.services.fiz
+          .services__item
+            a(href="services-inner.html").services__link
+              img(src=`${baseDir}images/services/fiz/${service.image}.jpg`, alt!=service.title).services__image
+              p.services__name!=service.title
+        .services__item.for-desktop
+          .services__overflow
+            .square-line
+              span
+              span
+              span
+            ul.services__lists
+              each lists in data.services.lists
+                li.services__list!=lists
+      .services__bottom
+        p.services__text
+          | Вопросы Детективному агентству по оказываемым услугам детектива  направляйте сюда!
+        a(href="mailto:").button.button-secondary
+          | Написать нам
