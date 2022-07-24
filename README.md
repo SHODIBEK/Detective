@@ -3,7 +3,7 @@
 
 Detective agency
 
-## Deployment
+## 💻Deployment
 
 To deploy this project run
 
@@ -20,6 +20,6 @@ To deploy this project run
 - Gulp
 
 
-## Screenshots
+## 🖼️Screenshots
 
 ![App Screenshot](https://i.ibb.co/rZ2t2Jk/IAPD-detectiv.jpg)
