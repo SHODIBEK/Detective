@@ -1,5 +1,25 @@
-# Стартовый шаблон для верстки
 
-## Документация
+## 🗿🛠 Detective
 
-Документация к данной сборке доступна по ссылке [https://github.com/ninelines-team/ninelines-docs](https://github.com/ninelines-team/ninelines-docs).
+Detective agency
+
+## Deployment
+
+To deploy this project run
+
+```bash
+  npm install
+  gulp
+```
+
+
+## 🛠 Skills
+- Pug(Jade),
+- SCSS, 
+- JavaScript(Jquery), 
+- Gulp
+
+
+## Screenshots
+
+![App Screenshot](https://i.ibb.co/rZ2t2Jk/IAPD-detectiv.jpg)
